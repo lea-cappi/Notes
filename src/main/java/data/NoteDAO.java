@@ -140,7 +140,6 @@ public class NoteDAO {
             stmt = conn.prepareStatement(SQL_UPDATE);
             
             String tagsString = Utils.tagsListToString(note.getTags());
-            
             stmt.setString(1, note.getTitle());
             stmt.setString(2, note.getBody());
             stmt.setString(3, note.getDescription());

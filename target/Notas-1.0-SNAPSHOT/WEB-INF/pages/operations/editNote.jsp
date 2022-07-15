@@ -13,11 +13,11 @@
         
         %>
         
-        <jsp:include page="WEB-INF/pages/commons/header.jsp"/> 
+        <jsp:include page="/WEB-INF/pages/commons/header.jsp"/> 
         
         <form action="${pageContext.request.contextPath}/servletController?action=modify&idNote=${note.idNote}" 
               method="POST" class="was-validated">
-            <jsp:include page="WEB-INF/pages/commons/editNav.jsp"/>
+            <jsp:include page="/WEB-INF/pages/commons/editNav.jsp"/>
             
             <section id="details">
                 <div class="container">
@@ -31,7 +31,7 @@
                                     
                                     <div class="form-group">
                                         <label for="title">Titulo</label>
-                                        <input type="text" class="form-control" name="titulo" required="" value="${note.title}">
+                                        <input type="text" class="form-control" name="title" required="" value="${note.title}">
                                     </div>
                                     <div class="form-group">
                                         <label for="body">Cuerpo</label>
@@ -56,7 +56,7 @@
             
         </form>        
         
-        <jsp:include page="WEB-INF/pages/commons/footer.jsp"/>
+        <jsp:include page="/WEB-INF/pages/commons/footer.jsp"/>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>

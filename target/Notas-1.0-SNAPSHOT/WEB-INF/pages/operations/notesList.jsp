@@ -13,6 +13,7 @@
                     <table class="table table-striped table-dark">
                         <thead class="thead-dark">
                             <tr>
+                                <!--<th>#</th>-->
                                 <th>Titulo</th>
                                 <th>Cuerpo</th>
                                 <th>Descripcion</th>
