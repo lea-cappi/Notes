@@ -71,9 +71,10 @@ public class ServletController extends HttpServlet{
         String body = req.getParameter("body");
         String description = req.getParameter("description");
         String tagsString = req.getParameter("tagsString");
-        List<String> tags = Utils.tagsStringToList(tagsString);
+        List<String> tagsList = Utils.tagsStringToList(tagsString);
+        System.out.println("-----------------------------en saveNote-----------------------------------");
         
-        Note note  = new Note(title,body,description,tags);
+        Note note  = new Note(title,body,description,tagsList);
         int regMod =  new NoteDAO().create(note);
         System.out.println("Insertados: " + regMod);
         defaultAction (req,res);
@@ -83,14 +84,28 @@ public class ServletController extends HttpServlet{
     public void editNote (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int idNote = Integer.parseInt(req.getParameter("idNote"));
         Note note = new NoteDAO().findNoteById(idNote);
-        req.setAttribute("modifyNote", note);
-        req.getRequestDispatcher("/WEB-INF/pages/operations/editNote.jsp").forward(req,res);
+        System.out.println("-----------------------------en editNote-----------------------------------");
+        req.setAttribute("note", note);
+        req.getRequestDispatcher("/WEB-INF/pages/operations/editNote.jsp").forward(req,res);//puede ser que borrando se solucione el duplicado del path en el error
         
         
     }
     
-    private void modifyNote (HttpServletRequest req, HttpServletResponse res) {
-        
+    private void modifyNote (HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String title = req.getParameter("title");
+        String body = req.getParameter("body");
+        String description = req.getParameter("description");
+        List<String> tagsList = Utils.tagsStringToList("tagsString");
+        System.out.println("-----------------------------en modifyNote-----------------------------------");
+        int idNote = Integer.parseInt(req.getParameter("idNote"));
+
+        Note note = new Note(idNote, title, body, description, tagsList);
+
+        int regMod = new NoteDAO().update(note);
+
+        System.out.println("SE ACTUALIZARON: " + regMod + " REGISTROS");
+
+        defaultAction(req, res);
     }
     
 //    private void editNote (HttpServletRequest req, HttpServletResponse res) {
@@ -100,8 +115,14 @@ public class ServletController extends HttpServlet{
 //        req.getRequestDispatcher("/WEB-INF/paginas/operaciones/editarLibro.jsp").forward(req, res);
 //    }
     
-    private void deleteNote (HttpServletRequest req, HttpServletResponse res) {
+    private void deleteNote (HttpServletRequest req, HttpServletResponse res) throws IOException {
+        int idNote = Integer.parseInt(req.getParameter("idNote"));
         
+        int regDel = new NoteDAO().delete(idNote);
+        System.out.println("-----------------------------en deleteNote-----------------------------------");
+        System.out.println("REGISTROS ELIMINADOS: "+ regDel);
+        
+        defaultAction(req, res);
     }
     
     private void modifyTags(){}

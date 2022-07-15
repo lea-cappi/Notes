@@ -212,6 +212,28 @@ public class NoteDAO {
         }
         return registros;
     }
+    
+    public int delete(int idNote){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = getConexion();
+            stmt = conn.prepareStatement(SQL_DELETE);
+            stmt.setInt(1, idNote);
+            registros = stmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            try {
+                close(stmt);
+                close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
+    }
      
     public Note selectById(String title) {
         Connection conn = null;

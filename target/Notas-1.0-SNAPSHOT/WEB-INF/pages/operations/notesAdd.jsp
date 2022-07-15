@@ -8,7 +8,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="title">Titulo</label>
-                        <input type="text" class="form-control" name="titulo" required="">
+                        <input type="text" class="form-control" name="title" required="">
                     </div>
                     <div class="form-group">
                         <label for="body">Cuerpo</label>
