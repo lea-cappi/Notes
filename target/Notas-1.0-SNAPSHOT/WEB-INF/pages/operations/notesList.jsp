@@ -5,7 +5,7 @@
 <section id="notes">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">
                         <h4>Listado de notas</h4>
@@ -13,12 +13,10 @@
                     <table class="table table-striped table-dark">
                         <thead class="thead-dark">
                             <tr>
-                                <!--<th>#</th>-->
-                                <th>Titulo</th>
-                                <th>Cuerpo</th>
-                                <th>Descripcion</th>
-                                <th>Tags</th>
-                                <th>Accion</th> <!--COMPLETAR HREF CUANDO ESTE TERMINADO JSP EDITAR-->
+                                <th style="width: 5%">#</th>
+                                <th style="width: 50%">Titulo</th>
+                                <th style="width: 30%">Tags</th>
+                                <th style="width: 15%">Accion</th> <!--COMPLETAR HREF CUANDO ESTE TERMINADO JSP EDITAR-->
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +24,7 @@
                                 <tr>
                                     <td>${status.count}</td>
                                     <td>${note.title}</td>
+                                    <td>${note.tagsString()}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/servletController?action=edit&idNote=${note.idNote}" 
                                            class="btn btn-secondary">
@@ -37,17 +36,6 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class ="col-md-3">
-                <div class="card text-center bg-danger test-white mb-3">
-                    <div class="card-body">
-                        <h3>Cuerpo</h3>
-                        <h4 class="display-4">
-                            ${body}
-                        </h4>
-                    </div>
-                    
                 </div>
             </div>
         </div>

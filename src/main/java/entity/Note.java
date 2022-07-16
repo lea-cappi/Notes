@@ -79,5 +79,14 @@ public class Note {
         return "Note{" + "title=" + title + ", body=" + body + ", description=" + description + ", tags=" + tags + ", baja=" + baja + '}';
     }
     
+    public String tagsString(){
+        if (!tags.isEmpty()) {
+            String tagsString = new String();
+            tagsString = String.join(", ", tags);
+            return tagsString;            
+        } else {
+            return null;
+        }
+    }
     
 }
