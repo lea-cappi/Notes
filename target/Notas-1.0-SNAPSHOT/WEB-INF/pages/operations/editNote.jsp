@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="body">Cuerpo</label>
-                                        <textarea class="form-control" rows ="6" name="body" value="${note.body}"></textarea>
+                                        <input type="text" class="form-control" name="body" value="${note.body}">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Descripcion</label>
