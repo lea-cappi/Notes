@@ -118,7 +118,7 @@ public class ServletController extends HttpServlet{
     private void deleteNote (HttpServletRequest req, HttpServletResponse res) throws IOException {
         int idNote = Integer.parseInt(req.getParameter("idNote"));
         
-        int regDel = new NoteDAO().delete(idNote);
+        int regDel = new NoteDAO().bajaLogica(idNote);
         System.out.println("-----------------------------en deleteNote-----------------------------------");
         System.out.println("REGISTROS ELIMINADOS: "+ regDel);
         

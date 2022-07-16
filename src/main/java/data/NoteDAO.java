@@ -300,6 +300,29 @@ public class NoteDAO {
         }
         return registros;
     }
+    public int bajaLogica (int idNote){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try{
+            conn = getConexion();
+            stmt = conn.prepareStatement(SQL_LOGIC_DELETE);
+            stmt.setBoolean(1, true);
+            stmt.setInt(2, idNote);
+            registros = stmt.executeUpdate();
+        } catch (SQLException ex){
+            ex.printStackTrace(System.out);
+        }
+        finally {
+            try {
+                close(stmt);
+                close(conn);
+            } catch (SQLException ex){
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
+    }
     
     
             
