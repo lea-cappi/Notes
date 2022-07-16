@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <h4>Listado de notas</h4>
                     </div>
-                    <table class="table table-striped table-dark">
+                    <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th style="width: 5%">#</th>

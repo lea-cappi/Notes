@@ -1,7 +1,7 @@
 <div class="modal fade" id="addNoteModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-info text-white">
+            <div class="modal-header bg-danger text-white">
                 <h5 class="modal-title">Agregar nota</h5>
             </div>
             <form action="${pageContext.request.contextPath}/servletController?action=insert" method="POST" class="was-validated"><!--modificar-->
@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                         <label for="body">Cuerpo</label>
-                        <input type="text" class="form-control" name="body">
+                        <textarea class="form-control" rows="6" name="body"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="description">Descripcion</label>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="#" class="btn btn-primary btn-block" 
+                <a href="#" class="btn btn-danger btn-block" 
                    data-bs-toggle="modal" data-bs-target="#addNoteModal">
                     <i class="fas fa-plus"></i>Agregar Nota
                 </a>
